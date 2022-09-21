@@ -1,0 +1,15 @@
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(184, 176, 189);
+  margin: 0;
+}
+
+.dashboard {
+  background-color: rgb(87, 87, 190);
+}
+.weather-title {
+  display: flex;
+  justify-content: center;
+  color: white;
+}
