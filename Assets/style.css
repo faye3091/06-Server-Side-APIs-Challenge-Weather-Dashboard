@@ -1,3 +1,11 @@
+:root {
+  --border: rgb(89, 52, 126);
+  --header: rgb(107, 0, 128);
+  --light: rgb(196, 174, 216);
+  --dark-purple: rgb(69, 9, 69);
+  --background: #947ea9;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -10,14 +18,27 @@ main {
   margin: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   align-items: center;
 }
 
-h3 {
-  font-size: larger;
-  border: 1px solid blue;
+h2 {
+  font-size: 30px;
+  border: 1px solid var(--header);
+  background-color: var(--header);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
   padding: 5px;
+  color: var(--light);
+  text-align: center;
+}
+
+h3 {
+  font-size: 25px;
+  border: 1px solid var(--header);
+  background-color: var(--header);
+  padding: 5px;
+  color: var(--light);
 }
 
 form {
@@ -26,13 +47,13 @@ form {
 }
 
 .row {
-  border: 1px solid black;
   display: flex;
   justify-content: space-evenly;
+  margin-bottom: 15px;
 }
 
 .dashboard {
-  background-color: rgb(87, 87, 190);
+  background-color: var(--header);
 }
 
 .weather-title {
@@ -44,26 +65,43 @@ form {
 
 label {
   display: block;
+  color: var(--dark-purple);
+  font-weight: 500;
+  font-size: larger;
+}
+
+input {
+  border-color: var(--header);
+  border-radius: 5px;
+  line-height: 35px;
 }
 
 .btn {
   display: block;
-  border: 1px solid;
+  border: 1px solid --border;
+  background-color: var(--background);
   margin: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--header);
 }
 
 #search-city {
-  border: 1px solid blue;
+  border: 3px solid var(--border);
+  border-radius: 5px;
   padding: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  height: fit-content;
 }
 
 #searched-history {
-  height: 150px;
-  border: 1px solid blue;
+  height: fit-content;
+  border: 3px solid var(--border);
+  border-radius: 5px;
   padding: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .searched-header {
@@ -76,5 +114,29 @@ label {
 
 .current-header,
 .five-day {
-  border: 1px solid black;
+  border: 3px solid var(--border);
+  border-radius: 5px;
+  display: none;
+  padding: 5px;
+}
+
+.current-weather {
+  color: var(--dark-purple);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.day {
+  background-color: rgb(148, 126, 169);
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.five-day-body {
+  justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
 }

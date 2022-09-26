@@ -10,7 +10,7 @@
     />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     />
     <link rel="stylesheet" href="./Assets/style.css" />
     <title>Weather Dashboard</title>
@@ -27,19 +27,17 @@
           <h3 class="search-header">Search By City</h3>
           <form id="city-form">
             <label class="form-lable" for="cityname">City Name</label>
-            <input name="cityname" type="text" />
+            <input name="cityname" type="text" id="cityinput" />
             <button type="submit" class="btn">Get Weather</button>
           </form>
         </div>
         <div class="col-md-7 current-header">
-          <div class="results-hidden">
-            <h2 class="weather-status"></h2>
-            <div class="current-weather"></div>
-          </div>
+          <h2 class="weather-status"></h2>
+          <div class="current-weather"></div>
         </div>
       </div>
       <div class="row col-12">
-        <div class="col-md-4" id="searched-history">
+        <div class="col-md-4" id="searched-history" style="display: none">
           <h3 class="searched-header">
             Search History
             <i
@@ -53,9 +51,12 @@
         </div>
         <div class="five-day col-md-7">
           <h2>5-Day Forecast</h2>
-          <div class="five-day-body flex-row justify-space-around"></div>
+          <div class="five-day-body flex-row"></div>
         </div>
       </div>
     </main>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="./Assets/script.js"></script>
   </body>
 </html>
