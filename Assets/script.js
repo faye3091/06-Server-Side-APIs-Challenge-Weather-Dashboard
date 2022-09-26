@@ -72,20 +72,26 @@ var getWeatherInfo = function (cityname) {
       var weatherIcon = cityResponse.weather[0].icon;
       var weatherDescription = cityResponse.weather[0].description;
       var weatherIconLink =
-        "<img scr='http://openweathermap.org/img/wn/" +
+        "<img src='http://openweathermap.org/img/wn/" +
         weatherIcon +
-        "@2x.png' alt=''" +
+        "@2x.png' alt='" +
         weatherDescription +
         "' title='" +
-        weatherDescription +
-        "' />";
+        "'  />";
 
       //empty current weather element for new data
       currentWeatherEl.textContent = "";
       fiveDayEl.textContent = "";
 
       //Update <h2> element to show city, data and icon
-      weatherStatusEl.innerHTML = city + " (" + date + ") " + weatherIconLink;
+      weatherStatusEl.innerHTML =
+        city +
+        " (" +
+        date +
+        ") " +
+        "<p>" +
+        weatherDescription +
+        weatherIconLink;
       console.log(today);
 
       //change class name 'hidden' to show current weather
@@ -190,6 +196,8 @@ var displayWeather = function (weather) {
       "<p>" +
       weatherIconLink +
       "</p>" +
+      " " +
+      weatherDescription +
       "<p><strong>Temp:</strong> " +
       forecastArray[i].temp.day.toFixed(1) +
       "°F</p>" +
@@ -206,6 +214,7 @@ var loadHistory = function () {
 
   if (searchArray) {
     searchHistoryArray = JSON.parse(localStorage.getItem("weatherSearch"));
+    historyEl.removeAttribute("style");
     for (let i = 0; i < searchArray.length; i++) {
       var searchHistoryEl = document.createElement("button");
       searchHistoryEl.className = "btn";
@@ -228,11 +237,12 @@ var buttonClickHandler = function (event) {
 //clear search history
 var clearHistory = function () {
   localStorage.removeItem("weatherSearch");
-  //historyEl.setAttribute("style", "display: none");
-  historyEl.style.display = "none";
+  //stays hidden when clear the history
+  historyEl.style.visibility = "hidden";
 };
 cityFormEl.addEventListener("submit", formSubmit);
 historyButtonsEl.addEventListener("click", buttonClickHandler);
 trashEl.addEventListener("click", clearHistory);
 
-loadHistory;
+//this loads any past history even if the page is refreshed
+loadHistory();

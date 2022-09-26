@@ -10,7 +10,7 @@ body {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  background-color: rgb(184, 176, 189);
+  background-color: var(--light));
   margin: 0;
 }
 
@@ -44,6 +44,10 @@ h3 {
 form {
   display: flex;
   flex-direction: column;
+}
+
+p {
+  margin: 0px;
 }
 
 .row {
@@ -140,3 +144,4 @@ input {
   display: flex;
   flex-wrap: wrap;
 }
+
